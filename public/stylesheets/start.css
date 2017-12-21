@@ -1,0 +1,7 @@
+@CHARSET "UTF-8";
+#center{
+float: left;
+margin: 100px 10px 10px 200px;
+width:50px;
+height:100px;
+}

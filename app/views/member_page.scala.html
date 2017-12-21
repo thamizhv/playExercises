@@ -1,0 +1,35 @@
+@*(MembersForm :Form[Members],members: List[Members])*@
+@(members: List[Member])
+@main("Members"){
+<div id="form1">
+<form action="" method="POST">
+@helper.CSRF.formField
+Name<br>
+<input type ="text" name="Name" pattern="[A-Za-z]+" oninvalid="setCustomValidity('Plz enter alphabets')" onchange="try{setCustomValidity('')}catch(e){}"><br><br>
+Age<br>
+<input type ="text" name="Age" pattern="[0-9]+" oninvalid="setCustomValidity('Plz enter numbers')" onchange="try{setCustomValidity('')}catch(e){}"><br><br>
+<input type ="submit" value="Submit">
+</form>
+</div>
+<div id="form2">
+<form id ="form2">
+  <fieldset>
+<h2><b>Member List</b></h2>
+<table style="width:100%">
+    <tr>
+    	<th>Name</th>
+    	<th>Age</th>
+    </tr>
+ @for(member <- members){ 
+
+    <tr>
+    
+    <td>@member.getName()</td>
+    <td>@member.getAge()</td>
+    </tr>
+   }
+   </table> 
+   </fieldset>
+   </form> 
+</div>
+}

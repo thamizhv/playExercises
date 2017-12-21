@@ -1,0 +1,27 @@
+@(Country_form:Form[Cities],Country_List:List[String],City_List:List[String])
+@main("Cities"){
+<div id="form1">
+<form action="" method="POST">
+@helper.CSRF.formField
+Country<br>
+<select name ="Country">
+<option value="">Select a country</option>
+@for(i <- 0 to Country_List.size()-1){ 
+    <option value="@Country_List.get(i)">@Country_List.get(i)</option>     
+    }
+</select>
+<br><br>
+<input type ="submit" value="Get Cities">
+</form>
+</div>
+<div id="form2">
+<form id ="form2">
+  <fieldset>
+    <h2><b>Cities</b></h2>
+@for(i <- 0 to City_List.size()-1){        
+    @City_List.get(i)<br>
+    }
+  </fieldset>
+</form>
+</div>
+}

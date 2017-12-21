@@ -1,0 +1,34 @@
+@(Sortform:Form[Sort],Sorted_Result:List[Integer])
+@main("Sort"){
+<div id="form1">
+<form action="" method="POST">
+@helper.CSRF.formField
+Number1<br>
+<input type ="text" name="Number1" pattern="[0-9]+" oninvalid="setCustomValidity('Plz enter numbers')" onchange="try{setCustomValidity('')}catch(e){}"><br><br>
+Number2<br>
+<input type ="text" name="Number2" pattern="[0-9]+" oninvalid="setCustomValidity('Plz enter numbers')" onchange="try{setCustomValidity('')}catch(e){}"><br><br>
+Number3<br>
+<input type ="text" name="Number3" pattern="[0-9]+" oninvalid="setCustomValidity('Plz enter numbers')" onchange="try{setCustomValidity('')}catch(e){}"><br><br>
+Number4<br>
+<input type ="text" name="Number4" pattern="[0-9]+" oninvalid="setCustomValidity('Plz enter numbers')" onchange="try{setCustomValidity('')}catch(e){}"><br><br>
+Number5<br>
+<input type ="text" name="Number5" pattern="[0-9]+" oninvalid="setCustomValidity('Plz enter numbers')" onchange="try{setCustomValidity('')}catch(e){}"><br><br>
+<input type ="submit" value="Sort">
+</form>
+</div>
+<div id="form2">
+<form id ="form2">
+  <fieldset>
+    <h2><b>Sorted Numbers</b></h2>
+    @if(Sorted_Result.isEmpty()){
+    <br>
+    }else{
+    @for(i <- 0 to Sorted_Result.size()-1){        
+    @Sorted_Result.get(i)<br>
+    }
+    }
+    
+  </fieldset>
+</form>
+</div>
+}
